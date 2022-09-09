@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@600&display=swap');
+body{
+    background-color: #dedee0;
+    font-family: 'Quicksand', sans-serif;
+}
+.logo{
+    border-radius: 50%;
+    width:40px;
+    height: 40px; display: inline-block;
+}
+.header ul{
+    padding: 0;
+    margin: 0;
+    list-style: none; display: inline-block;
+    transform: translate(0,-14px);
+   
+    
+}
+.header{
+    color:#dedee0;
+    position: absolute;
+    z-index: 11111111111111;
+    width:100%;
+}
+.header li{
+    display: inline-block;
+    font-size: 13px;
+    margin-left:20px;
+}
+
+.container{
+    background-color: #000;
+    position: fixed;
+    top:50%;
+    left:50%;
+    width:1000px;
+    height: 600px;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+}
+.birt{
+    transform: rotateY(192deg) rotate(-40deg);
+    position: absolute;
+    z-index: 7;
+    right:50%;
+    bottom:25%;
+    transition: 1.5s;
+}
+.birt img{
+    width:350px;
+}
+.item{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index: 5;
+}
+.item img{
+    width:100%;
+    height:100%;
+    opacity: 0.5;
+    object-fit: cover;
+}
+.content{
+    position: absolute;
+    bottom:0px;
+    right:0px;
+    padding:20px 40px 30px 0;
+    width:330px;
+    color:#BFC3C4
+
+}
+/* .content::before{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    content: '';
+    background-color: #fff;
+    content: '';
+    z-index: -1;
+} */
+h2{
+    position: relative;
+    z-index: 100;
+    font-family: 'Sora', sans-serif;
+    font-size: 30px;
+    color:#BFC3C4
+}
+.content1{
+    margin-top:30px;
+    padding:0 ;
+    position: relative;
+}
+.button{
+    margin:30px 0 ;
+    border:1px solid #BFC3C4;
+    width:max-content;
+    padding:10px 20px;
+    transition: 1s;
+}
+.item{
+    display: none;
+}
+.active, .hide{
+    display: block;
+}
+.active img{
+    animation: showimg 1s ease-in-out 1 forwards;
+}
+.hide img{
+    animation: hideimg 1s ease-in-out 1 forwards;
+}
+@keyframes showimg{
+    0%{
+        transform: translate(100%,0);
+    }
+    100%{
+        transform: translate(0%,0);
+    }
+}
+@keyframes hideimg{
+    0%{
+        transform: translate(0%,0);
+    }100%{
+        transform: translate(-100%,0);
+    }
+}
+.active .content h2{
+    opacity: 0;
+    animation: showcontent 0.7s ease-in-out 1s 1 forwards;
+}
+.active .content .content1{
+    opacity: 0;
+    animation: showcontent 0.7s ease-in-out 1.2s 1 forwards;
+}
+.active .content .button{
+    opacity: 0;
+    animation: showcontent 0.7s ease-in-out 1.4s 1 forwards;
+}
+.hide .content h2, .content1, .button{
+    animation: hidecontent 1.7s ease-in-out 1 forwards;
+}
+@keyframes showcontent{
+    0%{
+        filter: blur(33px);
+        transform: translate(100%,0);
+    }100%{
+        filter: blur(0px);
+        transform: translate(0%,0);
+        opacity: 1;
+    }
+}
+@keyframes hidecontent{
+    0%{
+        filter: blur(0);
+        transform: translate(0%,0);
+    }100%{
+        transform: translate(-100%,0);
+        filter: blur(33px);
+        opacity: 0;
+    }
+}
+.start .birt{
+    animation:startbirt 3s ease-in-out 1 forwards;
+}
+.birt img{
+    animation:birt 1s ease-in-out infinite alternate;
+}
+@keyframes birt{
+    0%{
+        transform: rotate(5deg);
+    }
+    100%{
+        transform: rotate(0deg);
+    }
+}
+@keyframes startbirt{
+    0%{
+
+    }
+    50%{
+        right: 31%;
+        bottom: 16%;
+        transform: rotateY(192deg) rotate(-52deg);
+    }
+    70%{
+        bottom: 27%;
+        transform: rotateY(192deg) rotate(-22deg);
+    }
+    100%{
+        right: 50%;
+        bottom: 25%;
+    }
+}
+.start::before{
+    position: absolute;
+    width:100%;
+    height: 4px;
+    content: '';
+    background-color: #EEA83D;
+    z-index: 111;
+    animation:time 3s ease-in-out 1 forwards
+}
+@keyframes time{
+    0%{
+        width:0;
+    }90%{
+        width:100%;
+        top:0;
+    }
+    100%{
+        top:-10px;
+    }
+}
+.button:hover{
+    background: azure;
+    color: black;
+}
+#next{
+    position: absolute;
+    z-index: 111111111111111;
+    bottom: 0;
+    left: 0;
+    padding: 20px;
+    border: none;
+    background-color: #fff;
+    transition: 1s;
+}
+#next:hover{
+    background: azure;
+    color: black;
+}
