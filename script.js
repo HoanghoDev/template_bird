@@ -47,33 +47,26 @@ $('.button').hover(function(){
 ,function(){
        beginPosition();
 });
-$('.header').hover(function(){
-    if($(".effect").hasClass("start")){
-        return;
-    }
-    $('.birt').css('right','50%');
-    $('.birt').css('bottom','36%');
-    $('.birt').css('transform','rotateY(192deg) rotate(-40deg)');
-}
-,function(){
-   beginPosition();
-});
-
-$('#next').hover(function(){
-    if($(".effect").hasClass("start")){
-        return;
-    }
-    $('.birt').css('right','50%');
-    $('.birt').css('bottom','15%');
-    $('.birt').css('transform','rotateY(192deg) rotate(-40deg)');
-}
-,function(){
-   beginPosition();
-});
-
 
 function beginPosition(){
     $('.birt').css('right','50%');
     $('.birt').css('bottom','25%');
     $('.birt').css('transform','rotateY(192deg) rotate(-40deg)');
 }
+
+$('.item').hover(function(event){
+    var $PosTop = event.pageY;
+    var $PosLeft = event.pageX;
+    var $height = $('.item').height();
+    var $width = $('.item').width();
+    var defaultTop = 25;
+    var defaultLeft = 50;
+    var topNew = $PosTop > ( $height/2) + 30 ? defaultTop - 10 :  defaultTop + 10;
+    var leftNew = $PosLeft > ( $width/ 3) + 30 ? defaultLeft - 10 :   defaultLeft +10;
+    $('.birt').css('right',leftNew +'%');
+    $('.birt').css('bottom', topNew +'%');
+    console.log($PosTop, ( $height/2) + 30);
+
+}, function(){
+    beginPosition();
+});
